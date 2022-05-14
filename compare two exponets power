@@ -1,0 +1,53 @@
+/*
+given three integrs a,b,c .determine pow(a,c) and power(a,b) to determine which is greate
+
+*/
+
+ #include<bits/stdc++.h>
+using namespace std;
+
+int ans1(int a,int b){
+    int res=1;
+    while(b){
+        if(b&1)
+        res=res*a;
+        a=a*a;
+        b=b/2;
+    }
+    return res;
+}
+
+int ans2(int a, int b){
+    int res=1;
+    while(b){
+        if(b&1)
+        res=res*a;
+        a=a*a;
+        b=b/2;
+    }
+    return res;
+}
+
+string solve(int A,int B, int C){
+    
+  int k=ans1(A,C);
+  int l= ans2(B,C); 
+ //cout<<k<<" "<<l<<endl;
+    
+    if(k>l)
+    return ">";
+    
+    else if(k==l)
+        return "=";  
+        
+        else
+        return "<";  
+}  
+
+
+int main()
+{
+    int x,y,z;
+    cin>>x>>y>>z;
+    cout<<solve(x,y,z);
+}
